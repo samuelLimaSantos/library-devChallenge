@@ -41,6 +41,5 @@ Além do desafio básico, decidi dar um passo além utilizando banco de dados e 
 1. Clone este repositório
 1. Rode `npm install` para instalar todas as dependências do projeto.
 1. Rode a aplicação com a sua ferramenta de teste de rotas favoritas no endereço `http://localhost:3333`.
-1. Abra no seu navegador o arquivo `index.html`.
 
 ###### Com amor :heart: Samuel
