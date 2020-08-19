@@ -14,18 +14,16 @@ class BooksController {
 
     const authorsString = authors.reduce((author, next) => `${author},${next}`);
 
-    // console.log(title, publishing, picture, authorsString);
-
-    await db('books').insert({
+    const id = await db('books').insert({
       title,
       picture,
       publishing,
       authors: authorsString,
     });
 
-    return response
-      .status(201)
-      .json({ message: 'The book has been registered' });
+    const book = await db('books').select('books.*').where('books.id', '=', id);
+
+    return response.status(201).json(book);
   }
 
   async index(request: Request, response: Response) {
@@ -50,7 +48,9 @@ class BooksController {
       authors: authorsString,
     });
 
-    return response.json({ message: 'The book has been updated' });
+    const book = await db('books').select('books.*').where('books.id', '=', id);
+
+    return response.json(book);
   }
 
   async delete(request: Request, response: Response) {
